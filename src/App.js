@@ -1,179 +1,218 @@
-import { FaInstagram, FaPlayCircle, FaPlane } from "react-icons/fa";
+import { FaInstagram, FaPlane, FaPaperclip } from "react-icons/fa";
 import { IoMdHome } from "react-icons/io";
-import image1 from './assets/Sem_Titulo-5.png';
 import logo from './assets/Sem_Titulo-2.png';
 import marcelo from './assets/image.png';
 import tatto from './assets/Sem_Titulo-3.png'
 import footerImg from './assets/Sem_Titulo-4.png'
+import { useState } from "react";
+import { texts as texts2 } from "./infos";
 
 
 function App() {
-  return (
-    <div className="w-full max-w-[1200px] mx-auto">
+  const [filesList, setFilesList] = useState([]);
+  const [hasSendForm, setHasSendForm] = useState(false);
 
-      <div className="flex justify-between px-8 items-center pt-8">
-        <FaInstagram size={20} />
-        <div className="flex gap-2 text-gray-600">
-          <p>PT</p>
-          <p>ITA</p>
-          <p>ENG</p>
-        </div>
-      </div>
+  const pathname = window.location.pathname.split('/')[1];
 
+  const currentPath = () => {
+    switch (pathname.toLowerCase()) {
+      case 'pt':
+        return 'PT';
+      case 'ita':
+        return 'ITA';
+      case 'eng':
+        return 'ENG';
+      default:
+        return 'PT';
+    }
+  }
 
+  function redirectToInstagram() {
+    return window.location.href = 'https://www.instagram.com/mcapocci/';
+  }
 
-      <div className="h-8" />
+  function handleSendForm(e) {
+    e.preventDefault();
+    try {
+      console.log(e);
 
-      <div className="text-center">
-        <img src={logo} alt="Instagram" className="mx-auto" />
-
-        <div className="h-4" />
-
-        <h1 className="text-xl">M.CAPOCCI TATTOO</h1>
-
-        <div className="h-4" />
-
-        <h2 className="text-center text-gray-500 text-sm">Assista o vídeo abaixo para conhecer <br/> meu método de trabalho:</h2>
-
-        <div className="h-4" />
-
-        <div className="relative">
-          <iframe
-            width="100%"
-            // height="250"
-            src="https://www.youtube.com/embed/V3GilodyI9M"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="w-full object-cover"
-          ></iframe>
-          {/* <img src={image1} alt="Tattoo" className="w-full mx-auto h-[250px] object-cover my-4" /> */}
-        </div>
+      e.target.reset();
+      setFilesList([]);
       
+      setHasSendForm(true);
+    } catch (error) {
+      
+    }
+  }
+
+  const texts = texts2[currentPath().toLowerCase()];
+
+return (
+  <div className="w-full max-w-[1000px] mx-auto">
+    <div className="flex justify-between px-8 items-center pt-8">
+      <FaInstagram size={25} onClick={redirectToInstagram} className="cursor-pointer" />
+      <div className="flex gap-2 text-gray-600">
+        <a href="/PT" className={`cursor-pointer ${currentPath() === "PT" && 'font-bold underline'}`}>PT</a>
+        <a href="/ITA" className={`cursor-pointer ${currentPath() === "ITA" && 'font-bold underline'}`}>ITA</a>
+        <a href="/ENG" className={`cursor-pointer ${currentPath() === "ENG" && 'font-bold underline'}`}>ENG</a>
       </div>
+    </div>
 
+    <div className="h-8" />
 
-      <div className="h-8" />
-
-      <div className="w-full px-8">
-
-        
-        <h1 className="text-center text-xl">CALENDÁRIO 2025</h1>
-
-        <div className="h-8" />
-
-        <div className="border-2 rounded-full flex gap-4 items-center py-2 px-4 text-gray-500 max-w-[350px]">
-          <FaPlane size={35} />
-          <div>
-            <h1 className="text-xl">FIRENZE 03 - 30 APRILE</h1>
-            <p className="text-red-700 font-semibold">NOW BOOKING</p>
-          </div>
-        </div>
-
-        <div className="h-4" />
-
-        <div className="border-2 rounded-full flex gap-4 items-center py-2 px-4 text-gray-500 max-w-[350px]">
-          <IoMdHome size={35} />
-          <div>
-            <h1 className="text-xl">SP - SÃP PAULO</h1>
-            <p className="text-red-700 font-semibold">AGENDA ABERTA</p>
-          </div>
-        </div>
-        
-        <div className="h-8" />
-
-        <div className="w-full flex justify-center">
-          <button className="bg-gray-200 text-gray-600 py-2 px-4 mx-auto">FAÇA SEU ORÇAMENTO</button>
-        </div>
-
-        <div className="h-8" />
-
-        <div className="h-0.5 bg-gray-300" />
-      </div>
-
-      <div className="h-8" />
-
-      <div className="w-full px-8">
-        <h1 className="text-2xl text-gray-700">Tatuagens personalizadas
-        que contam histórias.</h1>
-
+    <div className="text-center">
+      <img src={logo} alt={texts.header.instagramAlt} className="mx-auto" />
       <div className="h-4" />
-
-        <p className="text-gray-500 text-sm">Meu processo é único e cuidadoso. A criação da arte é feita com atenção aos detalhes, respeitando sua ideia inicial e ouvindo sua opinião sobre o design apresentado. Minhas artes são o resultado de uma história, conceito ou referências visuais.</p>
+      <h1 className="text-xl">{texts.header.title}</h1>
+      <div className="h-4" />
+      <h2 className="text-center text-gray-500 text-sm md:text-lg px-8 md:px-0">{texts.header.subtitle}</h2>
+      <div className="h-4" />
+      <div className="relative">
+        <iframe
+          width="100%"
+          src="https://www.youtube.com/embed/V3GilodyI9M"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="w-full object-cover h-[250px] md:h-[450px]"
+        ></iframe>
       </div>
+    </div>
 
+    <div className="h-8" />
+
+    <div className="w-full px-8">
+      <h1 className="text-center text-xl">{texts.calendar.title}</h1>
       <div className="h-8" />
-
-      <div className="w-full px-8 flex gap-6">
-
-        <img src={marcelo} alt="Marcelo Capocci" className="w-1/2 object-cover rounded-br-[90px]" />
-        
-        
-        <div className="w-1/2">
-          <h1 className="text-3xl text-gray-700">Marcelo Capocci.</h1>
-          
-          <div className="h-2" />
-          
-          <p className="text-gray-500 text-sm">
-            Apaixonado por artes desde pequeno. Brasileiro, nascido em 1984 em São Paulo.
-            <div className="h-2"/>
-            Formado em Design Digital em 2006 pela Anhembi Morumbi.
-            <div className="h-2"/>
-            Trabalhei nas maiores agencias de publicidade do País, e há 13 anos me dedico a arte da tatuagem.
-          </p>
+      <div className="border-2 rounded-full flex gap-4 items-center py-2 px-4 text-gray-500 max-w-[350px] mx-auto">
+        <FaPlane size={35} />
+        <div>
+          <h1 className="text-xl">{texts.calendar.firenze.title}</h1>
+          <p className="text-red-700 font-semibold">{texts.calendar.firenze.status}</p>
         </div>
       </div>
-
-      <div className="h-8" />
-
-      <div className="w-full px-8">
-        <img src={tatto} alt="Tattoo" className="w-full mx-auto object-cover my-4" />
-
-        <p className="text-center text-3xl font-light">2025</p>
-        <p className="text-center text-3xl my-4">AGENDAMENTOS</p>
-        <p className="text-center text-sm">Por favor, preencha o formulário abaixo que entrarei em contato o mais rápido possivel.</p>
+      <div className="h-4" />
+      <div className="border-2 rounded-full flex gap-4 items-center py-2 px-4 text-gray-500 max-w-[350px] mx-auto">
+        <IoMdHome size={35} />
+        <div>
+          <h1 className="text-xl">{texts.calendar.saoPaulo.title}</h1>
+          <p className="text-red-700 font-semibold">{texts.calendar.saoPaulo.status}</p>
+        </div>
       </div>
-
       <div className="h-8" />
+      <div className="w-full flex justify-center">
+        <button 
+          className="bg-gray-200 text-gray-600 py-2 px-4 mx-auto"
+          onClick={() => document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' })}
+        >
+          {texts.calendar.button}
+        </button>
+      </div>
+      <div className="h-8" />
+      <div className="h-0.5 bg-gray-300" />
+    </div>
 
+    <div className="h-8" />
+
+    <div className="w-full flex gap-8 md:gap-8 flex-col md:flex-row">
       <div className="w-full px-8">
-        <form action="" className="flex flex-col gap-4">
-          <label htmlFor="" className="text-gray-600">SEU NOME COMPLETO <Start/></label>
-          <input type="text" placeholder="Nome" className="border p-2 rounded" required />
+        <h1 className="text-3xl text-gray-700">{texts.about.title}</h1>
+        <div className="h-4" />
+        <p className="text-gray-500 text-sm md:text-lg whitespace-pre-line">{texts.about.description}</p>
+      </div>
+      <div className="w-full px-8 flex gap-6">
+        <img src={marcelo} alt="Marcelo Capocci" className="w-1/2 object-cover rounded-br-[90px]" />
+        <div className="w-1/2">
+          <h1 className="text-3xl text-gray-700">{texts.about.marcelo.name}</h1>
+          <div className="h-2" />
+          <p className="text-gray-500 text-sm md:text-lg whitespace-pre-line">{texts.about.marcelo.bio}</p>
+        </div>
+      </div>
+    </div>
 
-          <label htmlFor="" className="text-gray-600">SEU E-MAIL <Start/></label>
-          <input type="email" placeholder="Email" className="border p-2 rounded" required />
+    <div className="h-16" />
+    <div className="h-16 hidden Md:block" />
 
-          <label htmlFor="" className="text-gray-600">SUA MENSAGEM <Start/></label>
-          <textarea placeholder="Mensagem" className="border p-2 rounded" rows="4" required></textarea>
-
-          <select className="border p-2 rounded" required>
-            <option value="">Selecionar Local</option>
-            <option value="SP">SP</option>
-            <option value="ITALIA">ITALIA</option>
+    <div className="w-full flex gap-8 md:gap-8 flex-col md:flex-row">
+      <img src={tatto} alt="Tattoo" className="w-full mx-auto object-cover my-4" />
+      <div className="w-full px-8" id="contact-form">
+        <p className="text-center text-3xl font-light">{texts.form.year}</p>
+        <p className="text-center text-3xl my-4">{texts.form.title}</p>
+        <p className="text-center text-sm md:text-lg">{texts.form.description}</p>
+        <div className="h-8" />
+        <form action="" className="flex flex-col" onSubmit={handleSendForm}>
+          <label htmlFor="" className="text-gray-600">{texts.form.nameLabel} <Start/></label>
+          <input type="text" placeholder="Nome" name="name" className="border p-2 rounded" required />
+          <div className="h-4" />
+          <label htmlFor="" className="text-gray-600">{texts.form.emailLabel} <Start/></label>
+          <input type="email" placeholder="Email" name="email" className="border p-2 rounded" required />
+          <div className="h-4" />
+          <label htmlFor="" className="text-gray-600">{texts.form.messageLabel} <Start/></label>
+          <textarea placeholder="Mensagem" name="message" className="border p-2 rounded" rows="4" required></textarea>
+          <div className="h-4" />
+          <label htmlFor="" className="text-gray-600">{texts.form.locationLabel} <Start/></label>
+          <select className="border p-2 rounded bg-gray-200 text-gray-600" name="country">
+            <option value="SP">{texts.form.locations.sp}</option>
+            <option value="ITALIA">{texts.form.locations.italy}</option>
           </select>
-
-          <label htmlFor="" className="text-gray-600">SUA MENSAGEM <Start/></label>
-          <input type="file" className="border p-2 rounded" accept=".jpg,.jpeg,.png,.pdf" required />
-
-
-          <button type="submit" className="bg-gray-200 text-gray-600 py-2 px-4">Enviar</button>
+          <div className="h-4" />
+          <div className="flex flex-col items-center gap-1">
+            <label htmlFor="" className="text-gray-600 self-start">{texts.form.attachmentLabel} <Start/></label>
+            <p className="text-sm text-gray-600">
+              <span className="text-red-600">{texts.form.attachmentDescription1}</span>
+              {texts.form.attachmentDescription2}
+            </p>
+            <div className="h-4" />
+            <p className="text-gray-600 text-sm">{texts.form.attachmentNote}</p>
+            <label className="flex items-center py-2 px-8 border cursor-pointer text-sm gap-2 text-gray-500"  htmlFor="file-upload">
+              <FaPaperclip size={20} className="text-gray-400" />
+              <p>{texts.form.attachButton}</p>
+            </label>
+            <input
+              id="file-upload"
+              type="file"
+              className="border-none hidden"
+              accept="image/*"
+              multiple
+              required
+              onError={() => alert(texts.alert.fileError)}
+              onChange={(e) => {
+                const files = Array.from(e.target.files);
+                if (files.length > 4) {
+                  alert(texts.alert.fileMax);
+                  e.target.value = null;
+                } else {
+                  setFilesList(files);
+                }
+              }}
+            />
+            <ul className="text-gray-600 text-sm self-start">
+              {filesList.map((file, index) => (
+                <li key={index} className="py-1">{file.name}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="h-4" />
+          {
+            hasSendForm
+            ? <button type="submit" disabled className="text-white bg-cyan-400 py-2 px-4 cursor-not-allowed font-semibold">{texts.form.submitSuccess}</button>
+            : <button type="submit" className="bg-gray-200 text-gray-600 py-2 px-4" onClick={() => filesList.length < 1 && alert(texts.alert.fileSelect)}>{texts.form.submitButton}</button>
+          }
+          {hasSendForm && <p className="text-sm text-center mt-1 text-gray-600">{texts.form.submitNote}</p>}
         </form>
       </div>
-
-
-      <div className="w-full px-8 flex flex-col gap-2 py-16">
-        <img src={logo} alt="Instagram" className="mx-auto" />
-        <p className="text-center text-gray-700">M.CAPOCCI TATTOO</p>
-        <p className="text-center text-gray-500">agendamcapocci@gmail.com</p>
-        <FaInstagram size={25} className="mx-auto"/>
-      </div>
-
-      <img src={footerImg} alt="Footer" className="w-full object-cover" />
-
-
     </div>
-  );
+
+    <div className="w-full px-8 flex flex-col gap-2 py-16">
+      <img src={logo} alt={texts.footer.instagramAlt} className="mx-auto" />
+      <p className="text-center text-gray-700">{texts.header.title}</p>
+      <p className="text-center text-gray-500">{texts.footer.email}</p>
+      <FaInstagram size={25} className="mx-auto cursor-pointer" onClick={redirectToInstagram}/>
+    </div>
+
+    <img src={footerImg} alt="Footer" className="w-full object-cover md:hidden" />
+  </div>
+);
 }
 
 
