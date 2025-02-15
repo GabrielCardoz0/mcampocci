@@ -103,7 +103,7 @@ return (
       <div className="w-full flex justify-center">
         <button 
           className="bg-gray-200 text-gray-600 py-2 px-4 mx-auto"
-          onClick={() => document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => document.getElementById('contact-form-scroll-point').scrollIntoView({ behavior: 'smooth' })}
         >
           {texts.calendar.button}
         </button>
@@ -135,12 +135,12 @@ return (
 
     <div className="w-full flex gap-8 md:gap-8 flex-col md:flex-row">
       <img src={tatto} alt="Tattoo" className="w-full mx-auto object-cover my-4" />
-      <div className="w-full px-8" id="contact-form">
+      <div className="w-full px-8" id="contact-form-scroll-point">
         <p className="text-center text-3xl font-light">{texts.form.year}</p>
         <p className="text-center text-3xl my-4">{texts.form.title}</p>
         <p className="text-center text-sm md:text-lg">{texts.form.description}</p>
         <div className="h-8" />
-        <form action="" className="flex flex-col" onSubmit={handleSendForm}>
+        <form action="" id="contact-form" className="flex flex-col" onSubmit={handleSendForm}>
           <label htmlFor="" className="text-gray-600">{texts.form.nameLabel} <Start/></label>
           <input type="text" placeholder="Nome" name="name" className="border p-2 rounded" required />
           <div className="h-4" />
