@@ -48,7 +48,12 @@ export const texts = {
       attachButton: "ANEXAR ARQUIVOS",
       submitButton: "Enviar",
       submitSuccess: "Formulário enviado. Obrigado.",
-      submitNote: "Entrarei em contato o mais breve possível!"
+      submitNote: "Entrarei em contato o mais breve possível!",
+      placeholders: {
+        name: "Nome",
+        email: "E-mail",
+        message: "Sua mensagem"
+      }
     },
     footer: {
       email: "agendamcapocci@gmail.com",
@@ -64,7 +69,8 @@ export const texts = {
     header: {
       instagramAlt: "Instagram",
       title: "M.CAPOCCI TATTOO",
-      subtitle: "Watch the video below to learn about my work method:"
+      // subtitle: "Watch the video below to learn about my work method:"
+      subtitle: "Watch the video below to learn about my working method:"
     },
     calendar: {
       title: "CALENDAR 2025",
@@ -76,40 +82,46 @@ export const texts = {
         title: "SP - SÃO PAULO",
         status: "OPEN SCHEDULE"
       },
-      button: "GET A QUOTE"
+      // button: "GET A QUOTE"
+      button: "TALK TO ME"
     },
     about: {
       title: "Custom tattoos that tell stories.",
       description: `My process is unique and careful.
-      The artwork is created with attention to detail, respecting your initial idea and listening to your opinion on the presented design.
-      My artworks are the result of a story, concept, or visual references.`,
+      Art creation is done with attention to detail, respecting your initial idea and listening to your opinion on the design presented.
+      My arts are the result of a story, concept or visual references.`,
       marcelo: {
         name: "Marcelo Capocci.",
-        bio: `Passionate about art since childhood. Brazilian, born in 1984 in São Paulo.
+        bio: `Passionate about arts since he was little. Brazilian, born in 1984 in São Paulo.
         Graduated in Digital Design in 2006 from Anhembi Morumbi.
-        Worked in the country's largest advertising agencies, and for 13 years I have been dedicated to the art of tattooing.`
+        I worked in the biggest advertising agencies in the country, and I have dedicated myself to the art of tattooing for 13 years.`
       }
     },
     form: {
       year: "2025",
       title: "APPOINTMENTS",
-      description: "Please fill out the form below, and I will get in touch as soon as possible.",
+      description: "Please fill out the form below and I will contact you as soon as possible.",
       nameLabel: "YOUR FULL NAME",
       emailLabel: "YOUR EMAIL",
       messageLabel: "YOUR MESSAGE",
-      locationLabel: "SELECT LOCATION",
+      locationLabel: "SELECT THE COUNTRY",
       locations: {
         sp: "SP",
         italy: "ITALY"
       },
       attachmentLabel: "ATTACH REFERENCE",
-      attachmentDescription1: "You must add a frontal photo of the area you want to tattoo.",
-      attachmentDescription2: "If available, send up to 2 reference files that help tell your idea.",
+      attachmentDescription1: "You must add a frontal photo of the area you are considering tattooing. ",
+      attachmentDescription2: "And if you have one, send 2 reference files that help tell your idea.",
       attachmentNote: "Up to 4 files. Max: 10MB",
       attachButton: "ATTACH FILES",
       submitButton: "Send",
       submitSuccess: "Form submitted. Thank you.",
-      submitNote: "I will contact you as soon as possible!"
+      submitNote: "I will contact you as soon as possible!",
+      placeholders: {
+        name: "Name",
+        email: "E-mail",
+        message: "Your mensagem"
+      }
     },
     footer: {
       email: "agendamcapocci@gmail.com",
@@ -138,40 +150,45 @@ export const texts = {
         title: "SP - SÃO PAULO",
         status: "AGENDA APERTA"
       },
-      button: "RICHIEDI UN PREVENTIVO"
+      button: "PARLA CON ME"
     },
     about: {
       title: "Tatuaggi personalizzati che raccontano storie.",
-      description: `Il mio processo è unico e accurato.
-      La creazione dell'arte è fatta con attenzione ai dettagli, rispettando la tua idea iniziale e ascoltando la tua opinione sul design presentato.
-      Le mie opere sono il risultato di una storia, un concetto o riferimenti visivi.`,
+      description: `Il mio processo è unico e attento.
+      La creazione artistica viene eseguita con attenzione ai dettagli, rispettando la tua idea iniziale e ascoltando la tua opinione sul progetto presentato.
+      Le mie arti sono il risultato di una storia, di un concetto o di riferimenti visivi.`,
       marcelo: {
         name: "Marcelo Capocci.",
-        bio: `Appassionato di arte fin da bambino. Brasiliano, nato nel 1984 a San Paolo.
-        Laureato in Design Digitale nel 2006 presso Anhembi Morumbi.
-        Ho lavorato nelle più grandi agenzie pubblicitarie del paese e da 13 anni mi dedico all'arte del tatuaggio.`
+        bio: `Appassionato di arte fin da piccolo. Brasiliano, nato nel 1984 a San Paolo.
+        Laureato in Digital Design nel 2006 presso Anhembi Morumbi.
+        Ho lavorato nelle più grandi agenzie pubblicitarie del Paese e mi dedico all'arte del tatuaggio da 13 anni.`
       }
     },
     form: {
       year: "2025",
       title: "APPUNTAMENTI",
-      description: "Per favore, compila il modulo qui sotto e ti contatterò al più presto.",
+      description: "Compila il modulo sottostante e ti contatterò il prima possibile.",
       nameLabel: "IL TUO NOME COMPLETO",
       emailLabel: "LA TUA EMAIL",
       messageLabel: "IL TUO MESSAGGIO",
-      locationLabel: "SELEZIONA LA POSIZIONE",
+      locationLabel: "SELEZIONA IL PAESE",
       locations: {
         sp: "SP",
         italy: "ITALIA"
       },
       attachmentLabel: "ALLEGARE RIFERIMENTO",
-      attachmentDescription1: "Devi aggiungere una foto frontale della zona che vuoi tatuare.",
-      attachmentDescription2: "Se disponibile, invia fino a 2 file di riferimento che aiutino a raccontare la tua idea.",
+      attachmentDescription1: "Devi aggiungere una foto frontale dell'area che intendi tatuare. ",
+      attachmentDescription2: "E se ne hai uno, invia 2 file di riferimento che ti aiutino a raccontare la tua idea.",
       attachmentNote: "Fino a 4 file. Max: 10MB",
-      attachButton: "ALLEGARE FILE",
-      submitButton: "Invia",
+      attachButton: "ALLEGA FILE",
+      submitButton: "Inviare",
       submitSuccess: "Modulo inviato. Grazie.",
-      submitNote: "Ti contatterò al più presto!"
+      submitNote: "Ti contatterò al più presto!",
+      placeholders: {
+        name: "Nome",
+        email: "E-mail",
+        message: "Messagio"
+      }
     },
     footer: {
       email: "agendamcapocci@gmail.com",
@@ -184,3 +201,69 @@ export const texts = {
     }
   }
 };
+
+
+
+/*
+ITALIANO
+Guarda il video qui sotto per conoscere il mio metodo di lavoro:
+CALENDARIO 2025
+Parla con me
+Tatuaggi personalizzati che raccontano storie.
+Il mio processo è unico e attento.
+La creazione artistica viene eseguita con attenzione ai dettagli, rispettando la tua idea iniziale e ascoltando la tua opinione sul progetto presentato.Le mie arti sono il risultato di una storia, di un concetto o di riferimenti visivi.
+Marcelo Capocci
+Appassionato di arte fin da piccolo. Brasiliano, nato nel 1984 a San Paolo.Laureato in Digital Design nel 2006 presso Anhembi Morumbi.Ho lavorato nelle più grandi agenzie pubblicitarie del Paese e mi dedico all'arte del tatuaggio da 13 anni.
+2025
+APPUNTAMENTI
+Compila il modulo sottostante e ti contatterò il prima possibile.
+IL TUO NOME COMPLETO *
+NOME
+LA TUA E-MAIL *
+E-MAIL
+IL TUO MESSAGGIO *
+MESSAGGIO
+SELEZIONA IL PAESE
+ALLEGARE RIFERIMENTO *
+Devi aggiungere una foto frontale dell'area che intendi tatuare. E se ne hai uno, invia 2 file di riferimento che ti aiutino a raccontare la tua idea.
+Fino a 4 file. Massimo: 10mb
+ALLEGA FILE
+Inviare
+
+
+
+
+
+
+
+
+
+ngles:
+Watch the video below to learn about my working method:
+CALENDAR 2025
+Talk to me
+Custom tattoos that tell stories.
+
+My process is unique and careful.
+Art creation is done with attention to detail, respecting your initial idea and listening to your opinion on the design presented.
+My arts are the result of a story, concept or visual references.
+Marcelo Capocci
+Passionate about arts since he was little. Brazilian, born in 1984 in São Paulo.
+Graduated in Digital Design in 2006 from Anhembi Morumbi.
+I worked in the biggest advertising agencies in the country, and I have dedicated myself to the art of tattooing for 13 years.
+2025
+APPOINTMENTS
+Please fill out the form below and I will contact you as soon as possible.
+YOUR FULL NAME *
+NAME
+YOUR EMAIL *
+EMAIL
+YOUR MESSAGE *
+MESSAGE
+SELECT THE COUNTRY
+ATTACH REFERENCE *
+You must add a frontal photo of the area you are considering tattooing. And if you have one, send 2 reference files that help tell your idea.
+Up to 4 files. Max: 10mb
+ATTACH FILES
+send
+*/

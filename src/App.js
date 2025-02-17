@@ -142,13 +142,13 @@ return (
         <div className="h-8" />
         <form action="" id="contact-form" className="flex flex-col" onSubmit={handleSendForm}>
           <label htmlFor="" className="text-gray-600">{texts.form.nameLabel} <Start/></label>
-          <input type="text" placeholder="Nome" name="name" className="border p-2 rounded" required />
+          <input type="text" placeholder={texts.form.placeholders.name} name="name" className="border p-2 rounded" required />
           <div className="h-4" />
           <label htmlFor="" className="text-gray-600">{texts.form.emailLabel} <Start/></label>
-          <input type="email" placeholder="Email" name="email" className="border p-2 rounded" required />
+          <input type="email" placeholder={texts.form.placeholders.email} name="email" className="border p-2 rounded" required />
           <div className="h-4" />
           <label htmlFor="" className="text-gray-600">{texts.form.messageLabel} <Start/></label>
-          <textarea placeholder="Mensagem" name="message" className="border p-2 rounded" rows="4" required></textarea>
+          <textarea placeholder={texts.form.placeholders.message} name="message" className="border p-2 rounded" rows="4" required></textarea>
           <div className="h-4" />
           <label htmlFor="" className="text-gray-600">{texts.form.locationLabel} <Start/></label>
           <select className="border p-2 rounded bg-gray-200 text-gray-600" name="country">
