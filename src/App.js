@@ -6,7 +6,68 @@ import tatto from './assets/Sem_Titulo-3.png'
 import footerImg from './assets/Sem_Titulo-4.png'
 import { useState } from "react";
 import { texts as texts2 } from "./infos";
+import axios from "axios";
 
+
+export const emailTemplate = ({ nome, email, country, mensagem }) =>  `
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mensagem de Contato</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .header {
+      text-align: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #dddddd;
+    }
+    .content {
+      padding: 20px 0;
+    }
+    .footer {
+      text-align: center;
+      padding: 10px 0;
+      border-top: 1px solid #dddddd;
+      font-size: 12px;
+      color: #888888;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Nova Mensagem de Contato</h1>
+    </div>
+    <div class="content">
+      <p><strong>Nome:</strong> ${nome}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>País:</strong> ${country}</p>
+      <p><strong>Mensagem:</strong></p>
+      <p>${mensagem}</p>
+    </div>
+    <div class="footer">
+      <p>Esta é uma mensagem automática, por favor, não responda.</p>
+    </div>
+  </div>
+</body>
+</html>
+`
 
 function App() {
   const [filesList, setFilesList] = useState([]);
@@ -32,9 +93,36 @@ function App() {
   }
 
   function handleSendForm(e) {
+    const formData = new FormData();
+    filesList.forEach((file, index) => {
+      formData.append(`file${index}`, file);
+    });
+
+    const html = emailTemplate({
+      nome: e.target.name.value,
+      email: e.target.email.value,
+      country: e.target.country.value,
+      mensagem: e.target.message.value
+    })
+
+    formData.append('html', html);
+    formData.append('email', "contact@mcapocci.com");
+    formData.append('subject', 'Nova Mensagem de Contato');
+
     e.preventDefault();
     try {
-      console.log(e);
+      axios.post('http://localhost:4545', formData, {
+        headers: {
+          'Authorization': 'Bearer Lp4Wg87DwIXAGVrM6fTgx3bh',
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      .then(response => {
+        console.log('Success:', response.data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
 
       e.target.reset();
       setFilesList([]);
